@@ -25,6 +25,6 @@ class Deck:
 
     def deal_cards(self, n):
         cards = []
-        for i in range(1, n):
+        for i in range(1, n + 1):
             cards.append(self.all_cards.pop(0))
         return cards
