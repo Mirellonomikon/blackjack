@@ -17,6 +17,9 @@ class Deck:
                 for rank in ranks:
                     self.all_cards.append(Card(suit, rank))
 
+    def __str__(self):
+        return "Current deck: " + ", ".join(str(card) for card in self.all_cards)
+
     def shuffle(self):
         random.shuffle(self.all_cards)
 

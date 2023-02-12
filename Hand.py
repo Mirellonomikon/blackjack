@@ -9,7 +9,7 @@ class Hand:
         self.value = 0
 
     def __str__(self):
-        result = ', '.join(card for card in self.cards)
+        result = ', '.join(str(card) for card in self.cards)
         return result
 
     def add_card(self, card):
