@@ -12,13 +12,13 @@ class Deck:
         self.all_cards = []
 
         # We use 4 decks of cards
-        for i in range(1, 5):
+        for i in range(4):
             for suit in suits:
                 for rank in ranks:
                     self.all_cards.append(Card(suit, rank))
 
     def __str__(self):
-        return "Current deck: " + ", ".join(str(card) for card in self.all_cards)
+        return "Current deck: " + "\n".join(str(card) for card in self.all_cards)
 
     def shuffle(self):
         random.shuffle(self.all_cards)
