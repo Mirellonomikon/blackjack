@@ -3,6 +3,12 @@ values = {'Two': 2, 'Three': 3, 'Four': 4, 'Five': 5, 'Six': 6, 'Seven': 7, 'Eig
 
 
 class Card:
+    """A class representing a playing card.
+    Attributes:
+        suit (str): The suit of the card (Hearts, Diamonds, Clubs, Spades)
+        rank (str): The rank of the card (2-10, Jack, Queen, King, Ace)  
+        value (int): The numerical value of the card in Blackjack
+    """
 
     def __init__(self, suit, rank):
         self.suit = suit
