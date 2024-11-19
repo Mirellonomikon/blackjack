@@ -3,19 +3,21 @@ from Deck import *
 
 class Player:
     """A class representing a player in a blackjack game.
-    The Player class manages a player's chips, hands, bets, and game actions like splitting and doubling down.
+    The Player class manages the player's chips, hands, bets and actions during gameplay.
     Attributes:
-        chips (int): The amount of chips the player currently has.
-        hands (list): A list of Hand objects representing the player's current hands.
-        current_hand (int): Index of the current hand being played.
-        bets (list): A list of integers representing the bet amount for each hand.
+        chips (int): The amount of chips the player currently has
+        hands (list): List of Hand objects representing the player's current hands
+        current_hand (int): Index of the currently active hand
+        bets (list): List of bet amounts corresponding to each hand
     Methods:
-        get_current_hand(): Returns the current Hand object being played.
-        next_hand(): Moves to the next hand if available.
-        win_chips(amount, hand_index=0): Adds won chips to player's total.
-        bet_chips(amount): Places a bet for the current hand.
-        double_down(): Doubles the bet and adds one card to current hand.
-        split_hand(): Splits current hand into two separate hands with equal bets.
+        get_current_hand(): Returns the currently active Hand object
+        next_hand(): Moves to the next hand if available
+        win_chips(amount, hand_index): Adds won chips to player's total
+        bet_chips(amount): Places a bet for the current hand
+        double_down(): Doubles the bet and adds one card to current hand
+        split_hand(): Splits a pair into two separate hands
+        hit(deck): Takes another card from the deck
+        stand(): Ends the turn for current hand
     """
 
     def __init__(self, chips):
@@ -84,3 +86,12 @@ class Player:
         print(f"Hand split. You now have {len(self.hands)} hands.")
         print("Current bets: " + ", ".join(str(bet) for bet in self.bets))
         return True
+
+    def hit(self, deck):
+        card = deck.deal_one()
+        self.get_current_hand().add_card(card)
+        print(f"You drew {card}")
+
+    def stand(self):
+        print(f"You stand on hand {self.current_hand + 1}")
+        

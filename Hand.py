@@ -45,3 +45,4 @@ class Hand:
     def get_value(self):
         self.ace_adjust()
         return self.value
+    
